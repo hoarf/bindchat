@@ -12,6 +12,12 @@ config :bindchat,
   ecto_repos: [BC.Repo],
   generators: [binary_id: true]
 
+config :bindchat, BC.Repo,
+  password: "bindchat",
+  username: "postgres",
+  hostname: "localhost",
+  database: "bindchat"
+
 # Configures the endpoint
 config :bindchat, BCWeb.Endpoint,
   url: [host: "localhost"],
@@ -21,6 +27,8 @@ config :bindchat, BCWeb.Endpoint,
   ],
   pubsub_server: BC.PubSub,
   live_view: [signing_salt: "Y1IsRKQ+"]
+
+config :bindchat, ash_apis: [BC.Chat]
 
 # Configure esbuild (the version is required)
 config :esbuild,
@@ -40,7 +48,7 @@ config :tailwind,
       --config=tailwind.config.js
       --input=css/app.css
       --output=../priv/static/assets/app.css
-    ),
+         ),
     cd: Path.expand("../assets", __DIR__)
   ]
 
@@ -51,6 +59,9 @@ config :logger, :console,
 
 # Use Jason for JSON parsing in Phoenix
 config :phoenix, :json_library, Jason
+
+# Configures Ash
+config :bindchat, :ash_apis, [BC.Chat]
 
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.

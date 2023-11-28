@@ -1,10 +1,18 @@
 defmodule BC.Chat.Message do
   # This turns this module into a resource
-  use Ash.Resource
+  use Ash.Resource, data_layer: AshPostgres.DataLayer
 
   actions do
     # Add a set of simple actions. You'll customize these later.
     defaults [:create, :read, :update, :destroy]
+  end
+
+  # The Postgres keyword is specific to the AshPostgres module.
+  postgres do
+    # Tells Postgres what to call the table
+    table "messages"
+    # Tells Ash how to interface with the Postgres table
+    repo BC.Repo
   end
 
   # Attributes are the simple pieces of data that exist on your resource
