@@ -1,4 +1,4 @@
-defmodule BC.Chat do
+defmodule BC.User do
   use Ash.Api, extensions: [AshAdmin.Api]
 
   admin do
@@ -6,6 +6,6 @@ defmodule BC.Chat do
   end
 
   resources do
-    registry BC.Chat.Registry
+    registry BC.User.Registry
   end
 end

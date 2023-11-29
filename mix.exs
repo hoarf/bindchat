@@ -50,6 +50,7 @@ defmodule BC.MixProject do
       {:plug_cowboy, "~> 2.5"},
       {:ash, "~> 2.17.1"},
       {:ash_postgres, "~> 1.3.62"},
+      {:ash_admin, "~> 0.9.8"},
       {:ash_phoenix, "~> 1.2.23"}
     ]
   end

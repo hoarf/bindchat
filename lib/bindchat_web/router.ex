@@ -1,6 +1,8 @@
 defmodule BCWeb.Router do
   use BCWeb, :router
 
+  import AshAdmin.Router
+
   pipeline :browser do
     plug :accepts, ["html"]
     plug :fetch_session
@@ -14,8 +16,10 @@ defmodule BCWeb.Router do
     plug :accepts, ["json"]
   end
 
-  scope "/", BCWeb do
+  scope "/" do
     pipe_through :browser
+
+    ash_admin("/admin")
 
     get "/", PageController, :home
   end

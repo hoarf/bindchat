@@ -1,6 +1,6 @@
 defmodule BC.Chat.Message do
   # This turns this module into a resource
-  use Ash.Resource, data_layer: AshPostgres.DataLayer
+  use Ash.Resource, extensions: [AshAdmin.Resource], data_layer: AshPostgres.DataLayer
 
   actions do
     # Add a set of simple actions. You'll customize these later.
@@ -21,6 +21,6 @@ defmodule BC.Chat.Message do
     uuid_primary_key :id
 
     # Add a string type attribute called `:subject`
-    attribute :subject, :string
+    attribute :body, :string
   end
 end
