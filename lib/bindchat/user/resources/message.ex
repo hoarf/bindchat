@@ -2,7 +2,7 @@ defmodule BC.User.Message do
   use Ash.Resource, extensions: [AshAdmin.Resource], data_layer: AshPostgres.DataLayer
 
   actions do
-    defaults [:create, :read, :update, :destroy]
+    defaults [:create, :read, :update]
   end
 
   postgres do
